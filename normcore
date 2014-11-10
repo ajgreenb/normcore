@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# NORMCORE
+# ========
+# Downloads `normalize.css` by Nicolas Gallagher (github/necolas)
+#
+# Copyright (c) 2014, Aaron Greenberg
+
+# Cause exit if a command fails.
+set -o errexit
+# Exit if script attempts to use undeclared variables.
+set -o nounset
+
+curl "http://necolas.github.io/normalize.css/latest/normalize.css"
