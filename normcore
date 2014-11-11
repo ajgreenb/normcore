@@ -14,6 +14,14 @@ VERSION="latest"
 # Cause exit if a command fails.
 set -o errexit
 
+# Usage
+read -r -d '' usage <<-'EOF'
+  Usage: normcore [options] PATH
+  -s|--sass               Downloads normalize.css as _normalize.scss.
+  -v|--version VERSION    normalize.css version to download. Default 'latest'.
+  -h|--help               Print this message.
+EOF
+
 while :; do
 
   if test -d "$1"; then
@@ -29,15 +37,17 @@ while :; do
         shift 2
         continue
       else
-        echo 'ERROR: Must specify a version number with -v' >&2
+        echo 'ERROR: Must specify a version number!' > &2
         exit 1
       fi
       ;;
     --version=?*) VERSION="${1#*=}" ;;
     --version=)
-      echo 'ERROR: Must specify a version number with -v' >&2
+      echo 'ERROR: Must specify a version number!' > &2
       exit 1
       ;;
+
+    -h|--help) echo "${usage}" && exit 0 ;;
 
     *) break
   esac
