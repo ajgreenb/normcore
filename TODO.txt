@@ -1,0 +1,12 @@
+`normcore` To-Do List
+=====================
+
+Priority 0
+----------
+* Add RegEx checking for $VERSION numbers.
+* Add a "Usage:" message.
+* Add error handling.
+
+Priority 1
+----------
+* Add support for other preprocessors, like LESS.
